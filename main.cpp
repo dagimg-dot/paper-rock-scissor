@@ -4,12 +4,21 @@ using namespace std;
 
 char calculateWinner(char p1, char p2);
 
-struct Choice
-{
-    const char ROCK = 'r';
-    const char PAPER = 'p';
-    const char SCISSOR = 's';
+map<char, string> Winner = {
+    {'r', "Rock breaks scissor"},
+    {'p', "Paper covers rock"},
+    {'s', "Scissor cut paper"},
 };
+
+map<string, char> calculatorMap = {
+    {"rs", 'r'},
+    {"pr", 'p'},
+    {"sp", 's'},
+    {"sr", 'r'},
+    {"rp", 'p'},
+    {"ps", 's'},
+};
+
 
 int main()
 {
@@ -19,37 +28,14 @@ int main()
     cout << "Player 2: ";
     cin >> p2;
     char winner = calculateWinner(tolower(p1), tolower(p2));
-    cout << winner;
+    cout << Winner[winner];
     return 0;
 }
 
 char calculateWinner(char p1, char p2)
 {
-    Choice choice;
-
-    if (p1 == choice.ROCK && p2 == choice.SCISSOR)
-    {
-        return p1;
-    }
-    else if (p1 == choice.SCISSOR && p2 == choice.ROCK)
-    {
-        return p2;
-    }
-    else if (p1 == choice.PAPER && p2 == choice.ROCK)
-    {
-        return p1;
-    }
-    else if (p2 == choice.PAPER && p1 == choice.ROCK)
-    {
-        return p2;
-    }
-    else if (p1 == choice.SCISSOR && p2 == choice.PAPER)
-    {
-        return p1;
-    }
-    else if (p1 == choice.PAPER && p2 == choice.SCISSOR)
-    {
-        return p2;
-    }
-    return 'n';
+    string choice = "";
+    choice += p1;
+    choice += p2;
+    return calculatorMap[choice];
 }
