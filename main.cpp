@@ -6,6 +6,7 @@ void welcome();
 char calculateWinner(char p1, char p2);
 bool validateChar(char c);
 char acceptInput(int player_num);
+void playAgain();
 
 map<char, string> Winner = {
     {'r', "Rock breaks scissor"},
@@ -31,12 +32,13 @@ int main()
     char winner = calculateWinner(tolower(p1), tolower(p2));
     if (!winner)
     {
-        cout << "There is no winner in this round";
+        cout << "There is no winner in this round\n";
     }
     else
     {
-        cout << "The winner is " << Winner[winner].substr(0, (Winner[winner].find(' '))) << ", because " << Winner[winner];
+        cout << "The winner is " << Winner[winner].substr(0, (Winner[winner].find(' '))) << ", because " << Winner[winner] << endl;
     }
+    playAgain();
     return 0;
 }
 
@@ -44,6 +46,21 @@ void welcome()
 {
     cout << "\t\t Rock Paper Scissor Game\n";
     cout << "\t\t Developed in C++ by dagimg-dot\n";
+}
+
+void playAgain()
+{
+    char play;
+    cout << "Do you want to play again ? (Y/N) : ";
+    cin >> play;
+    if (play == 'y' || play == 'Y')
+    {
+        main();
+    }
+    else
+    {
+        exit(0);
+    }
 }
 
 char acceptInput(int player_num)
