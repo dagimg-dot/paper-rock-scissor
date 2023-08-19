@@ -18,7 +18,7 @@ int main()
     cin >> p1;
     cout << "Player 2: ";
     cin >> p2;
-    char winner = calculateWinner(p1, p2);
+    char winner = calculateWinner(tolower(p1), tolower(p2));
     cout << winner;
     return 0;
 }
