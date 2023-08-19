@@ -19,7 +19,6 @@ map<string, char> calculatorMap = {
     {"ps", 's'},
 };
 
-
 int main()
 {
     char p1, p2;
