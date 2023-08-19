@@ -29,7 +29,14 @@ int main()
     p1 = acceptInput(1);
     p2 = acceptInput(2);
     char winner = calculateWinner(tolower(p1), tolower(p2));
-    cout << "The winner is " << Winner[winner].substr(0, (Winner[winner].find(' '))) << ", because " << Winner[winner];
+    if (!winner)
+    {
+        cout << "There is no winner in this round";
+    }
+    else
+    {
+        cout << "The winner is " << Winner[winner].substr(0, (Winner[winner].find(' '))) << ", because " << Winner[winner];
+    }
     return 0;
 }
 
