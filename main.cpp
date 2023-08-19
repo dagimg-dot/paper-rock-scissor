@@ -23,9 +23,14 @@ map<string, char> calculatorMap = {
     {"ps", 's'},
 };
 
+bool isPlayingAgain = false;
+
 int main()
 {
-    welcome();
+    if (!isPlayingAgain)
+    {
+        welcome();
+    }
     char p1, p2;
     p1 = acceptInput(1);
     p2 = acceptInput(2);
@@ -55,6 +60,7 @@ void playAgain()
     cin >> play;
     if (play == 'y' || play == 'Y')
     {
+        isPlayingAgain = true;
         main();
     }
     else
