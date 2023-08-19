@@ -10,7 +10,7 @@ char acceptInput(int player_num);
 map<char, string> Winner = {
     {'r', "Rock breaks scissor"},
     {'p', "Paper covers rock"},
-    {'s', "Scissor cut paper"},
+    {'s', "Scissor cuts paper"},
 };
 
 map<string, char> calculatorMap = {
@@ -29,13 +29,14 @@ int main()
     p1 = acceptInput(1);
     p2 = acceptInput(2);
     char winner = calculateWinner(tolower(p1), tolower(p2));
-    cout << Winner[winner];
+    cout << "The winner is " << Winner[winner].substr(0,(Winner[winner].find(' '))) << ", because " << Winner[winner];
     return 0;
 }
 
-void welcome() {
-    cout<<"\t\t Rock Paper Scissor Game\n";
-    cout<<"\t\t Developed in C++ by dagimg-dot\n";
+void welcome()
+{
+    cout << "\t\t Rock Paper Scissor Game\n";
+    cout << "\t\t Developed in C++ by dagimg-dot\n";
 }
 
 char acceptInput(int player_num)
