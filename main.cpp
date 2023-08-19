@@ -2,6 +2,7 @@
 #include <map>
 using namespace std;
 
+void welcome();
 char calculateWinner(char p1, char p2);
 bool validateChar(char c);
 char acceptInput(int player_num);
@@ -23,12 +24,18 @@ map<string, char> calculatorMap = {
 
 int main()
 {
+    welcome();
     char p1, p2;
     p1 = acceptInput(1);
     p2 = acceptInput(2);
     char winner = calculateWinner(tolower(p1), tolower(p2));
     cout << Winner[winner];
     return 0;
+}
+
+void welcome() {
+    cout<<"\t\t Rock Paper Scissor Game\n";
+    cout<<"\t\t Developed in C++ by dagimg-dot\n";
 }
 
 char acceptInput(int player_num)
