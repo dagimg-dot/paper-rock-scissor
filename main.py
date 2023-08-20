@@ -28,7 +28,7 @@ def main():
 
 def welcome():
     print("\t\t Rock Paper Scissor Game")
-    print("\t\t Developed in C++ by dagimg-dot")
+    print("\t\t Developed in Python by dagimg-dot")
 
 def acceptInput(player_num):
     player = input(f"Player {player_num}: ")
