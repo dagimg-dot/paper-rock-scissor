@@ -54,18 +54,28 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        populate();
-        if (!isPlayingAgain) {
-            welcome();
-        }
-        Scanner input = new Scanner(System.in);
-        String p1 = acceptInput(1, input);
-        String p2 = acceptInput(2, input);
-        String winner = calculateWinner(p1.toLowerCase(), p2.toLowerCase());
-        if(winner == null) {
-            System.out.println("There is no winner in this round");
-        } else {
-            System.out.println("The winner is " + Winner.get(winner).split(" ")[0] + ", because " + Winner.get(winner));
-        }
+        String play;
+        do {
+            populate();
+            if (!isPlayingAgain) {
+                welcome();
+            }
+            Scanner input = new Scanner(System.in);
+            String p1 = acceptInput(1, input);
+            String p2 = acceptInput(2, input);
+            String winner = calculateWinner(p1.toLowerCase(), p2.toLowerCase());
+            if (winner == null) {
+                System.out.println("There is no winner in this round");
+            } else {
+                System.out.println(
+                        "The winner is " + Winner.get(winner).split(" ")[0] + ", because " + Winner.get(winner));
+            }
+
+            System.out.print("Do you want to play again ? (Y/N) : ");
+            play = input.next();
+            boolean playAgain = play.equals("y") || play.equals("Y");
+            if (playAgain)
+                isPlayingAgain = true;
+        } while (play.equals("y") || play.equals("Y"));
     }
 }
