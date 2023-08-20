@@ -12,7 +12,10 @@ def main():
     p1 = acceptInput(1)
     p2 = acceptInput(2)
     winner = calculateWinner(p1, p2)
-    print(f"The winner is {winner}")
+    if winner == None:
+        print("The is no winner in this round")
+    else:
+        print(f"The winner is {winner}")
 
 
 def acceptInput(player_num):
@@ -31,8 +34,11 @@ def validateChar(c):
 
 
 def calculateWinner(p1, p2):
-    choice = p1 + p2
-    return calculatorDict[choice]
+    try:
+        choice = p1 + p2
+        return calculatorDict[choice]
+    except KeyError:
+        return None
 
 
 # Call the main method
