@@ -62,6 +62,10 @@ public class Main {
         String p1 = acceptInput(1, input);
         String p2 = acceptInput(2, input);
         String winner = calculateWinner(p1.toLowerCase(), p2.toLowerCase());
-        System.out.print(Winner.get(winner));
+        if(winner == null) {
+            System.out.println("There is no winner in this round");
+        } else {
+            System.out.println("The winner is " + Winner.get(winner).split(" ")[0] + ", because " + Winner.get(winner));
+        }
     }
 }
