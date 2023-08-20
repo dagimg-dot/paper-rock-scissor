@@ -21,7 +21,7 @@ def main():
         welcome()
     p1 = acceptInput(1)
     p2 = acceptInput(2)
-    winner = calculateWinner(p1, p2)
+    winner = calculateWinner(p1.lower(), p2.lower())
     if winner == None:
         print("There is no winner in this round")
     else:
