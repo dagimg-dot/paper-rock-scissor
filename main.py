@@ -1,3 +1,9 @@
+Winner = {
+    'r': "Rock breaks scissor",
+    'p': "Paper covers rock",
+    's': "Scissor cuts paper",
+}
+
 calculatorDict = {
     "rs": 'r',
     "pr": 'p',
@@ -15,7 +21,8 @@ def main():
     if winner == None:
         print("The is no winner in this round")
     else:
-        print(f"The winner is {winner}")
+        print(
+            f"The winner is {Winner[winner].split(' ')[0]}, because {Winner[winner]}")
 
 
 def acceptInput(player_num):
