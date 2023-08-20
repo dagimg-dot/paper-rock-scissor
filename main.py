@@ -23,7 +23,7 @@ def main():
     p2 = acceptInput(2)
     winner = calculateWinner(p1, p2)
     if winner == None:
-        print("The is no winner in this round")
+        print("There is no winner in this round")
     else:
         print(
             f"The winner is {Winner[winner].split(' ')[0]}, because {Winner[winner]}")
