@@ -13,9 +13,12 @@ calculatorDict = {
     "ps": 's',
 }
 
+isPlayingAgain = False
+
 
 def main():
-    welcome()
+    if(isPlayingAgain == False):
+        welcome()
     p1 = acceptInput(1)
     p2 = acceptInput(2)
     winner = calculateWinner(p1, p2)
@@ -24,11 +27,23 @@ def main():
     else:
         print(
             f"The winner is {Winner[winner].split(' ')[0]}, because {Winner[winner]}")
+    playAgain()
 
 
 def welcome():
     print("\t\t Rock Paper Scissor Game")
     print("\t\t Developed in Python by dagimg-dot")
+
+
+def playAgain():
+    play = input("Do you want to play again ? (Y/N) : ")
+    if play == 'y' or play == 'Y':
+        global isPlayingAgain
+        isPlayingAgain = True
+        main()
+    else:
+        exit(0)
+
 
 def acceptInput(player_num):
     player = input(f"Player {player_num}: ")
