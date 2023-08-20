@@ -15,6 +15,7 @@ calculatorDict = {
 
 
 def main():
+    welcome()
     p1 = acceptInput(1)
     p2 = acceptInput(2)
     winner = calculateWinner(p1, p2)
@@ -24,6 +25,10 @@ def main():
         print(
             f"The winner is {Winner[winner].split(' ')[0]}, because {Winner[winner]}")
 
+
+def welcome():
+    print("\t\t Rock Paper Scissor Game")
+    print("\t\t Developed in C++ by dagimg-dot")
 
 def acceptInput(player_num):
     player = input(f"Player {player_num}: ")
