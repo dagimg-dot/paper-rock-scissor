@@ -63,7 +63,7 @@ def calculateWinner(p1, p2):
     except KeyError:
         try:
             return calculatorDict[p2 + p1]
-        except:
+        except KeyError:
             return None
 
 
