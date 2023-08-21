@@ -15,7 +15,7 @@ function populate() {
 
 function welcome() {
   console.log("\t\t Rock Paper Scissor Game");
-  console.log("\t\t Developed in JavaScript by dagimg-dot");
+  console.log("\t\t Developed in JavaScript by dagimg-dot\n");
 }
 
 function calculateWinner(p1, p2) {
