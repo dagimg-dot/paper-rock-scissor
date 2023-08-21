@@ -6,9 +6,6 @@ Winner = {
 
 calculatorDict = {
     "rs": 'r',
-    "pr": 'p',
-    "sp": 's',
-    "sr": 'r',
     "rp": 'p',
     "ps": 's',
 }
@@ -62,10 +59,12 @@ def validateChar(c):
 
 def calculateWinner(p1, p2):
     try:
-        choice = p1 + p2
-        return calculatorDict[choice]
+        return calculatorDict[p1 + p2]
     except KeyError:
-        return None
+        try:
+            return calculatorDict[p2 + p1]
+        except:
+            return None
 
 
 # Call the main method
