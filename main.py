@@ -8,18 +8,21 @@ isPlayingAgain = False
 
 
 def main():
-    if(isPlayingAgain == False):
-        welcome()
-    p1 = acceptInput(1)
-    p2 = acceptInput(2)
-    winner = calculateWinner(p1.lower(), p2.lower())
-    conc = p1 + p2 if winner[1] == False else p2 + p1
-    if winner[0] == None:
-        print("There is no winner in this round")
-    else:
+    try:
+        if(isPlayingAgain == False):
+            welcome()
+        p1 = acceptInput(1)
+        p2 = acceptInput(2)
+        winner = calculateWinner(p1.lower(), p2.lower())
+        if winner == None:
+            print("There is no winner in this round")
+            playAgain()
+        conc = p1 + p2 if winner[1] == False else p2 + p1
         print(
             f"The winner is {calculatorDict[conc][1].split(' ')[0]}, because {calculatorDict[conc][1]}")
-    playAgain()
+        playAgain()
+    except KeyboardInterrupt:
+        print("\nInterrupted by Player !!")
 
 
 def welcome():
