@@ -1,13 +1,7 @@
-Winner = {
-    'r': "Rock breaks scissor",
-    'p': "Paper covers rock",
-    's': "Scissor cuts paper",
-}
-
 calculatorDict = {
-    "rs": 'r',
-    "rp": 'p',
-    "ps": 's',
+    "rs": ['r', "Rock breaks scissor"],
+    "rp": ['p', "Paper covers rock"],
+    "ps": ['s', "Scissor cuts paper"],
 }
 
 isPlayingAgain = False
@@ -19,11 +13,12 @@ def main():
     p1 = acceptInput(1)
     p2 = acceptInput(2)
     winner = calculateWinner(p1.lower(), p2.lower())
-    if winner == None:
+    conc = p1 + p2 if winner[1] == False else p2 + p1
+    if winner[0] == None:
         print("There is no winner in this round")
     else:
         print(
-            f"The winner is {Winner[winner].split(' ')[0]}, because {Winner[winner]}")
+            f"The winner is {calculatorDict[conc][1].split(' ')[0]}, because {calculatorDict[conc][1]}")
     playAgain()
 
 
@@ -59,10 +54,10 @@ def validateChar(c):
 
 def calculateWinner(p1, p2):
     try:
-        return calculatorDict[p1 + p2]
+        return [calculatorDict[p1 + p2][0], False]
     except KeyError:
         try:
-            return calculatorDict[p2 + p1]
+            return [calculatorDict[p2 + p1][0], True]
         except KeyError:
             return None
 
