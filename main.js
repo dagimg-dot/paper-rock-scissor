@@ -17,12 +17,18 @@ function populate() {
   Winner.set("s", "Scissor cuts paper");
 }
 
+function welcome() {
+    console.log("\t\t Rock Paper Scissor Game");
+    console.log("\t\t Developed in JavaScript by dagimg-dot");
+}
+
 function calculateWinner(p1, p2) {
   return calculatorMap.get(p1 + p2);
 }
 
 function main() {
   populate();
+  welcome();
   const p1 = "r"; // acceptInput(1)
   const p2 = "s"; // acceptInput(2)
   const winner = calculateWinner(p1.toLowerCase(), p2.toLowerCase());
