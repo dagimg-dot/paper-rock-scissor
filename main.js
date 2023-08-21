@@ -14,12 +14,12 @@ function populate() {
 }
 
 function welcome() {
-    console.log("\t\t Rock Paper Scissor Game");
-    console.log("\t\t Developed in JavaScript by dagimg-dot");
+  console.log("\t\t Rock Paper Scissor Game");
+  console.log("\t\t Developed in JavaScript by dagimg-dot");
 }
 
 function calculateWinner(p1, p2) {
-  return calculatorMap.get(p1 + p2) ||  calculatorMap.get(p2 + p1);
+  return calculatorMap.get(p1 + p2) || calculatorMap.get(p2 + p1);
 }
 
 function main() {
@@ -28,7 +28,12 @@ function main() {
   const p1 = "s"; // acceptInput(1)
   const p2 = "p"; // acceptInput(2)
   const winner = calculateWinner(p1.toLowerCase(), p2.toLowerCase());
-  console.log(Winner.get(winner));
+  console.log(
+    "The winner is " +
+      Winner.get(winner).split(" ")[0] +
+      ", because " +
+      Winner.get(winner)
+  );
 }
 
 // Call the main method
