@@ -1,3 +1,5 @@
+import random
+
 calculatorDict = {
     "rs": ['r', "Rock breaks scissor"],
     "rp": ['p', "Paper covers rock"],
@@ -11,8 +13,16 @@ def main():
     try:
         if(isPlayingAgain == False):
             welcome()
-        p1 = acceptInput(1)
-        p2 = acceptInput(2)
+        num = acceptNumPlayers()
+        if num == '1':
+            p1 = acceptInput(1)
+            p2 = acceptInput(2)
+        elif num == '2':
+            p1 = acceptInput(1)
+            p2 = computerChoice()
+        else:
+            print("Something went wrong !")
+            exit(0)
         winner = calculateWinner(p1.lower(), p2.lower())
         if winner == None:
             print("There is no winner in this round")
@@ -38,6 +48,23 @@ def playAgain():
         main()
     else:
         exit(0)
+
+
+def computerChoice():
+    choosen = random.choice(list(calculatorDict.values()))
+    print(f"The computer's choice was {choosen[0]}")
+
+    return choosen[0]
+
+
+def acceptNumPlayers():
+    print("1. Multi Player")
+    print("2. Single Player (play with the computer)")
+    num = input("Your choice: ")
+    while num not in ['1', '2']:
+        num = input("Invalid input, enter again: ")
+
+    return num
 
 
 def acceptInput(player_num):
