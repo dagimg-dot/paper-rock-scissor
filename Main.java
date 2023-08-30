@@ -49,11 +49,31 @@ public class Main {
         return player;
     }
 
+    static private boolean find(int num, int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == num) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     static private int acceptNumPlayers(Scanner input) {
+        int num = 0;
         System.out.println("1. Multi Player");
         System.out.println("2. Single Player (play with the computer)");
-        int num = input.nextInt();
+        try {
+            num = input.nextInt();
+            int[] choices = { 1, 2 };
+            while (!find(num, choices)) {
+                System.out.print("Invalid input, enter again: ");
+                num = input.nextInt();
+            }
 
+        } catch (Exception e) {
+            System.out.println("You have to enter an integer !!");
+        }
         return num;
     }
 
@@ -87,7 +107,7 @@ public class Main {
                 p1 = acceptInput(1, input);
                 p2 = computerChoice();
             } else {
-                System.out.println("Somthing is wrong");
+                System.out.println("Something is wrong");
                 System.exit(0);
             }
             String winner = calculateWinner(p1.toLowerCase(), p2.toLowerCase());
