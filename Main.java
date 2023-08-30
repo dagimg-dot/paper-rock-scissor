@@ -49,20 +49,47 @@ public class Main {
         return player;
     }
 
+    static private int acceptNumPlayers(Scanner input) {
+        System.out.println("1. Multi Player");
+        System.out.println("2. Single Player (play with the computer)");
+        int num = input.nextInt();
+
+        return num;
+    }
+
+    static private String computerChoice() {
+        String[] choices = { "r", "s", "p" };
+        long choice = Math.round(Math.random() * 10);
+        int index = (int) choice % 3;
+        System.out.println("The computer'choice was " + choices[index]);
+
+        return choices[index];
+    }
+
     static private String calculateWinner(String p1, String p2) {
         return calculatorMap.get(p1 + p2);
     }
 
     public static void main(String[] args) {
         String play;
+        String p1 = "", p2 = "";
         do {
             populate();
             if (!isPlayingAgain) {
                 welcome();
             }
             Scanner input = new Scanner(System.in);
-            String p1 = acceptInput(1, input);
-            String p2 = acceptInput(2, input);
+            int num = acceptNumPlayers(input);
+            if (num == 1) {
+                p1 = acceptInput(1, input);
+                p2 = acceptInput(2, input);
+            } else if (num == 2) {
+                p1 = acceptInput(1, input);
+                p2 = computerChoice();
+            } else {
+                System.out.println("Somthing is wrong");
+                System.exit(0);
+            }
             String winner = calculateWinner(p1.toLowerCase(), p2.toLowerCase());
             if (winner == null) {
                 System.out.println("There is no winner in this round");
