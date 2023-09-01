@@ -81,7 +81,7 @@ public class Main {
         String[] choices = { "r", "s", "p" };
         long choice = Math.round(Math.random() * 10);
         int index = (int) choice % 3;
-        System.out.println("The computer'choice was " + choices[index]);
+        System.out.println("The computer's choice was " + choices[index]);
 
         return choices[index];
     }
